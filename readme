@@ -1,0 +1,59 @@
+[Introducción]
+
+Hola a todos, bienvenidos a este video donde vamos a analizar los resultados de nuestro modelo de predicción de focos de fuego. Hemos utilizado un modelo de Bosque Aleatorio para clasificar áreas con y sin focos de fuego. Vamos a revisar las métricas de evaluación y los resultados obtenidos.
+
+[Precisión del Modelo]
+
+Primero, veamos la precisión general del modelo. Nuestro modelo ha alcanzado una precisión del 97.36%. Esto significa que el 97.36% de las predicciones realizadas por el modelo son correctas.
+
+[Reporte de Clasificación]
+
+A continuación, revisemos el reporte de clasificación. Este reporte nos proporciona tres métricas clave para cada clase: precisión, recall y F1-score.
+
+Clase 0 (Sin Fuego):
+
+Precisión: 94.52%
+Recall: 81.16%
+F1-Score: 87.33%
+Soporte: 361 instancias
+Clase 1 (Con Fuego):
+
+Precisión: 97.66%
+Recall: 99.40%
+F1-Score: 98.52%
+Soporte: 2854 instancias
+La precisión ponderada del modelo es del 97.36%, lo que indica un buen rendimiento general.
+
+[Conclusiones por Clase]
+
+Clase 0 (Sin Fuego):
+
+Alta precisión (94.52%) indica que el modelo rara vez clasifica erróneamente áreas sin fuego como si tuvieran fuego.
+El recall alto (81.16%) indica que el modelo es efectivo en identificar zonas sin fuego, aunque podría aumentar ligeramente.
+F1-Score de la clase 0: 87.33%
+Clase 1 (Con Fuego):
+
+Alta precisión (97.66%) sugiere que el modelo clasifica correctamente casi todas las áreas con focos de fuego.
+El recall alto (99.40%) indica que el modelo identifica correctamente casi todos los focos de fuego.
+F1-Score de la clase 1: 98.52%
+[Matriz de Confusión]
+
+La matriz de confusión nos proporciona una visión detallada de las predicciones correctas e incorrectas del modelo:
+
+Verdaderos Negativos (Clase 0 correctamente clasificada como No Fuego): 293
+Falsos Positivos (Clase 0 incorrectamente clasificada como Fuego): 68
+Falsos Negativos (Clase 1 incorrectamente clasificada como No Fuego): 17
+Verdaderos Positivos (Clase 1 correctamente clasificada como Fuego): 2837
+El modelo tiende a clasificar erróneamente algunas áreas sin fuego como focos de fuego, generando falsos positivos.
+
+[Predicciones para Noviembre]
+
+Las predicciones para noviembre se han guardado en el archivo 'Predicciones_Focos_Fuego_Noviembre.csv'. Además, hemos creado un mapa interactivo que muestra las predicciones de focos de fuego, el cual se ha guardado en 'Predicciones_Focos_Fuego_Noviembre_Mapa.html'.
+
+[Conclusión]
+
+En resumen, nuestro modelo de Bosque Aleatorio ha demostrado ser altamente preciso en la predicción de focos de fuego, con una precisión general del 97.36%. Aunque hay algunos falsos positivos, el modelo es muy efectivo en identificar tanto áreas con fuego como sin fuego.
+
+Gracias por ver este video. Si tienen alguna pregunta o comentario, no duden en dejarlo abajo. ¡Hasta la próxima!
+
+[Fin del Video]
