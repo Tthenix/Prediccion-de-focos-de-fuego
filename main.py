@@ -145,15 +145,24 @@ map_center = [november_df['Latitud'].mean(), november_df['Longitud'].mean()]
 fire_map = folium.Map(location=map_center, zoom_start=6)
 
 for _, row in november_df.iterrows():
-    color = 'red' if row['EsFuego_Pred'] == 1 else 'blue'
-    folium.CircleMarker(
-        location=[row['Latitud'], row['Longitud']],
-        radius=5,
-        color=color,
-        fill=True,
-        fill_color=color,
-        popup=folium.Popup(f"Probabilidad de Fuego: {row['Probabilidad_Fuego']:.2f}%", parse_html=True) if row['EsFuego_Pred'] == 1 else None
-    ).add_to(fire_map)
+    if row['EsFuego_Pred'] == 1:
+        folium.CircleMarker(
+            location=[row['Latitud'], row['Longitud']],
+            radius=5,
+            color='red',
+            fill=True,
+            fill_color='red',
+            popup=folium.Popup(f"Probabilidad de Fuego: {row['Probabilidad_Fuego']:.2f}%", parse_html=True)
+        ).add_to(fire_map)
+    else:
+        folium.CircleMarker(
+            location=[row['Latitud'], row['Longitud']],
+            radius=5,
+            color='blue',
+            fill=True,
+            fill_color='blue',
+            popup=folium.Popup(f"Probabilidad de No Fuego: {row['Probabilidad_No_Fuego']:.2f}%", parse_html=True)
+        ).add_to(fire_map)
 
 fire_map.save('Predicciones_Focos_Fuego_Noviembre_Mapa.html')
 print("Mapa de predicciones guardado en 'Predicciones_Focos_Fuego_Noviembre_Mapa.html'")
