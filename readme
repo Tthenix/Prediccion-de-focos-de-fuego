@@ -57,3 +57,13 @@ En resumen, nuestro modelo de Bosque Aleatorio ha demostrado ser altamente preci
 Gracias por ver este video. Si tienen alguna pregunta o comentario, no duden en dejarlo abajo. ¡Hasta la próxima!
 
 [Fin del Video]
+
+# Agregar comentarios explicando cada columna
+# FP_Confidence: Confianza de la detección de fuego (0-100)
+# Latitud: Latitud del punto detectado
+# Longitud: Longitud del punto detectado
+# FP_T21: Temperatura medida en el canal 21 del sensor MODIS
+# FP_T31: Temperatura medida en el canal 31 del sensor MODIS
+# FP_Power: Potencia del fuego detectado
+# SCAN: Ancho del escaneo del sensor
+# TRACK: Longitud del escaneo del sensor
