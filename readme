@@ -1,69 +1,130 @@
-[Introducción]
+Predicción de Focos de Fuego Usando Machine Learning
 
-Hola a todos, bienvenidos a este video donde vamos a analizar los resultados de nuestro modelo de predicción de focos de fuego. Hemos utilizado un modelo de Bosque Aleatorio para clasificar áreas con y sin focos de fuego. Vamos a revisar las métricas de evaluación y los resultados obtenidos.
+Este proyecto implementa un sistema de detección de focos de fuego basado en datos satelitales, utilizando modelos de machine learning para identificar zonas con probabilidad de incendio. Además, se generan visualizaciones interactivas para analizar y comunicar los resultados.
 
-[Precisión del Modelo]
+Características Principales
 
-Primero, veamos la precisión general del modelo. Nuestro modelo ha alcanzado una precisión del 97.36%. Esto significa que el 97.36% de las predicciones realizadas por el modelo son correctas.
+Preprocesamiento de Datos:
 
-[Reporte de Clasificación]
+Escalado y normalización de variables con StandardScaler.
 
-A continuación, revisemos el reporte de clasificación. Este reporte nos proporciona tres métricas clave para cada clase: precisión, recall y F1-score.
+Creación de etiquetas binarias (fuego/no fuego) según el nivel de confianza.
 
-Clase 0 (Sin Fuego):
+Entrenamiento del Modelo:
 
-Precisión: 94.52%
-Recall: 81.16%
-F1-Score: 87.33%
-Soporte: 361 instancias
-Clase 1 (Con Fuego):
+Uso de RandomForestClassifier con balanceo de clases.
 
-Precisión: 97.66%
-Recall: 99.40%
-F1-Score: 98.52%
-Soporte: 2854 instancias
-La precisión ponderada del modelo es del 97.36%, lo que indica un buen rendimiento general.
+División de datos en conjuntos de entrenamiento y prueba.
 
-[Conclusiones por Clase]
+Evaluación del Modelo:
 
-Clase 0 (Sin Fuego):
+Métricas de clasificación como precisión, recall, y F1-score.
 
-Alta precisión (94.52%) indica que el modelo rara vez clasifica erróneamente áreas sin fuego como si tuvieran fuego.
-El recall alto (81.16%) indica que el modelo es efectivo en identificar zonas sin fuego, aunque podría aumentar ligeramente.
-F1-Score de la clase 0: 87.33%
-Clase 1 (Con Fuego):
+Generación de matriz de confusión y reporte gráfico.
 
-Alta precisión (97.66%) sugiere que el modelo clasifica correctamente casi todas las áreas con focos de fuego.
-El recall alto (99.40%) indica que el modelo identifica correctamente casi todos los focos de fuego.
-F1-Score de la clase 1: 98.52%
-[Matriz de Confusión]
+Visualizaciones:
 
-La matriz de confusión nos proporciona una visión detallada de las predicciones correctas e incorrectas del modelo:
+Gráficos de barras para evaluar el desempeño por clase.
 
-Verdaderos Negativos (Clase 0 correctamente clasificada como No Fuego): 293
-Falsos Positivos (Clase 0 incorrectamente clasificada como Fuego): 68
-Falsos Negativos (Clase 1 incorrectamente clasificada como No Fuego): 17
-Verdaderos Positivos (Clase 1 correctamente clasificada como Fuego): 2837
-El modelo tiende a clasificar erróneamente algunas áreas sin fuego como focos de fuego, generando falsos positivos.
+Mapas interactivos generados con Folium para mostrar los resultados de las predicciones.
 
-[Predicciones para Noviembre]
+Predicciones Futuras:
 
-Las predicciones para noviembre se han guardado en el archivo 'Predicciones_Focos_Fuego_Noviembre.csv'. Además, hemos creado un mapa interactivo que muestra las predicciones de focos de fuego, el cual se ha guardado en 'Predicciones_Focos_Fuego_Noviembre_Mapa.html'.
+Evaluación de nuevos datos satelitales para identificar zonas de riesgo.
 
-[Conclusión]
+Tecnologías Utilizadas
 
-En resumen, nuestro modelo de Bosque Aleatorio ha demostrado ser altamente preciso en la predicción de focos de fuego, con una precisión general del 97.36%. Aunque hay algunos falsos positivos, el modelo es muy efectivo en identificar tanto áreas con fuego como sin fuego.
+Librerías de Machine Learning y Procesamiento de Datos:
 
-Gracias por ver este video. Si tienen alguna pregunta o comentario, no duden en dejarlo abajo. ¡Hasta la próxima!
+pandas, numpy, scikit-learn
 
-[Fin del Video]
+Visualización:
 
-# Agregar comentarios explicando cada columna
-# FP_Confidence: Confianza de la detección de fuego (0-100)
-# Latitud: Latitud del punto detectado
-# Longitud: Longitud del punto detectado
-# FP_T21: Temperatura medida en el canal 21 del sensor MODIS
-# FP_T31: Temperatura medida en el canal 31 del sensor MODIS
-# FP_Power: Potencia del fuego detectado
-# SCAN: Ancho del escaneo del sensor
-# TRACK: Longitud del escaneo del sensor
+matplotlib, seaborn, folium
+
+Análisis y Métricas:
+
+classification_report, confusion_matrix
+
+Archivos Incluidos
+
+main.py: Script principal que contiene el flujo del proyecto.
+
+classification_report.png: Gráfico de métricas de clasificación.
+
+confusion_matrix.png: Matriz de confusión visual.
+
+Predicciones_Focos_Fuego_Noviembre.csv: Predicciones generadas para el mes de noviembre.
+
+Predicciones_Focos_Fuego_Noviembre_Mapa.html: Mapa interactivo con las predicciones realizadas.
+
+Datos de Entrada
+
+Los datos satelitales se encuentran en formato CSV e incluyen las siguientes columnas relevantes:
+
+Latitud, Longitud: Coordenadas geográficas.
+
+FP_T21, FP_T31: Temperaturas relacionadas con los puntos detectados.
+
+FP_Power: Potencia del foco detectado.
+
+SCAN, TRACK: Tamaño de los píxeles detectados.
+
+FP_Confidence: Nivel de confianza del foco detectado.
+
+Ejemplo de Preprocesamiento:
+
+Se define como "fuego" aquellos registros donde FP_Confidence ≥ 50.
+
+Cómo Ejecutar el Proyecto
+
+Clona este repositorio:
+
+git clone https://github.com/tu_usuario/nombre_del_proyecto.git
+
+Instala las dependencias necesarias:
+
+pip install -r requirements.txt
+
+Coloca los archivos CSV con datos satelitales en el directorio principal.
+
+Ejecuta el script principal:
+
+python main.py
+
+Los resultados se generarán en los siguientes archivos:
+
+classification_report.png
+
+confusion_matrix.png
+
+Predicciones_Focos_Fuego_Noviembre.csv
+
+Predicciones_Focos_Fuego_Noviembre_Mapa.html
+
+Resultados y Visualizaciones
+
+1. Gráfico de Clasificación
+
+
+
+2. Matriz de Confusión
+
+
+
+3. Mapa Interactivo
+
+El mapa generado se encuentra en el archivo Predicciones_Focos_Fuego_Noviembre_Mapa.html y se puede visualizar en cualquier navegador.
+
+Interpretación de Resultados
+
+Clase 0 (Sin Fuego): Alta precisión indica que el modelo clasifica correctamente zonas sin fuego, reduciendo falsos positivos.
+
+Clase 1 (Con Fuego): Buen recall asegura que la mayoría de los focos de fuego son identificados correctamente.
+
+Contacto
+
+Si tienes preguntas o comentarios, no dudes en contactarme a través de tu_email@example.com o en mi perfil de GitHub.
+
+Este proyecto fue desarrollado como parte de un proyecto escolar.
+
