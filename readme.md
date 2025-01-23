@@ -1,7 +1,5 @@
 # Predicción de Focos de Fuego Usando Machine Learning
 
-pero Características Principales
-
 - **Preprocesamiento de Datos:**
 
   - Escalado y normalización de variables con `StandardScaler`.
@@ -57,27 +55,9 @@ Los datos satelitales se encuentran en formato CSV e incluyen las siguientes col
 
 Se define como "fuego" aquellos registros donde `FP_Confidence ≥ 50`.
 
-## Cómo Ejecutar el Proyecto
+## Link del proyecto:
 
-1. Clona este repositorio:
-
-   ```bash
-   git clone https://github.com/tu_usuario/nombre_del_proyecto.git
-   ```
-
-2. Instala las dependencias necesarias:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Coloca los archivos CSV con datos satelitales en el directorio principal.
-
-4. Ejecuta el script principal:
-
-   ```bash
-   python main.py
-   ```
+https://prediccion-de-focos-de-fuego-saocom.netlify.app/
 
 5. Los resultados se generarán en los siguientes archivos:
 
@@ -86,28 +66,11 @@ Se define como "fuego" aquellos registros donde `FP_Confidence ≥ 50`.
    - `Predicciones_Focos_Fuego_Noviembre.csv`
    - `Predicciones_Focos_Fuego_Noviembre_Mapa.html`
 
-## Resultados y Visualizaciones
-
-### 1. Gráfico de Clasificación
-
-
-
-### 2. Matriz de Confusión
-
-
-
-### 3. Mapa Interactivo
-
-El mapa generado se encuentra en el archivo `Predicciones_Focos_Fuego_Noviembre_Mapa.html` y se puede visualizar en cualquier navegador.
 
 ## Interpretación de Resultados
 
 - **Clase 0 (Sin Fuego):** Alta precisión indica que el modelo clasifica correctamente zonas sin fuego, reduciendo falsos positivos.
 - **Clase 1 (Con Fuego):** Buen recall asegura que la mayoría de los focos de fuego son identificados correctamente.
-
-## Contacto
-
-Si tienes preguntas o comentarios, no dudes en contactarme a través de [tu\_email@example.com](mailto\:tu_email@example.com) o en mi perfil de [GitHub](https://github.com/tu_usuario).
 
 ---
 
